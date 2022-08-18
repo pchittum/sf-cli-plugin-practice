@@ -13,3 +13,4 @@
 - To run your command with changes to the ts file without recompiling the typescript to js use `bin/dev [namespace] [command]`
 - To see changes that you've made to your code using `bin/run` you need to recompile typescript!
 - And how do you recompile typescript?
+- I suppose people won't necessarily be committing, but the commit rules and hooks are super useful for enterprise-ready SW, but annoying for just hacking together something.
