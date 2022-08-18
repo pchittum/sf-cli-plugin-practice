@@ -14,3 +14,4 @@
 - To see changes that you've made to your code using `bin/run` you need to recompile typescript!
 - And how do you recompile typescript?
 - I suppose people won't necessarily be committing, but the commit rules and hooks are super useful for enterprise-ready SW, but annoying for just hacking together something.
+- Question for eng: why are commonjs modules required?

@@ -9,11 +9,11 @@ import { SfCommand, Flags } from '@salesforce/sf-plugins-core';
 import { Messages } from '@salesforce/core';
 
 // supplemental libs
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 
 // load up help and error messages from the messages directory of the project
 Messages.importMessagesDirectory(__dirname);
-const messages = Messages.loadMessages('@salesforce/plugin-zen', 'zenquote.fetch');
+const messages = Messages.loadMessages('@pchittum/plugin-zen', 'hello.world');
 
 // the result object and needs to be declared in the schemas directory
 export type ZenQuoteFetchResult = {
@@ -46,14 +46,14 @@ export default class Fetch extends SfCommand<ZenQuoteFetchResult> {
 
     const time = new Date().toDateString();
 
-    const response = await fetch('https://zenquote.io/api/random');
+    // const response = await fetch('https://zenquote.io/api/random');
 
     // message appears to be a special thing
     // Anything you want on stdout goes here?
     const message = `Hello ${flags.name} at ${time}`;
     this.log(message);
     this.log(anotherMessage);
-    this.log(JSON.stringify(response));
+    // this.log(JSON.stringify(response));
     return {
       name: flags.name,
       time,

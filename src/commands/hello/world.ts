@@ -9,7 +9,7 @@ import { SfCommand, Flags } from '@salesforce/sf-plugins-core';
 import { Messages } from '@salesforce/core';
 
 Messages.importMessagesDirectory(__dirname);
-const messages = Messages.loadMessages('@salesforce/plugin-zen', 'hello.world');
+const messages = Messages.loadMessages('@pchittum/plugin-zen', 'hello.world');
 
 export type HelloWorldResult = {
   name: string;
