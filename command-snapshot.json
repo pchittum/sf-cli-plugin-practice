@@ -1,12 +1,12 @@
 [
   {
     "command": "hello:world",
-    "plugin": "@salesforce/plugin-zen",
+    "plugin": "@pchittum/plugin-zen",
     "flags": ["json", "name"]
   },
   {
     "command": "zenquote:fetch",
-    "plugin": "@salesforce/plugin-zen",
+    "plugin": "@pchittum/plugin-zen",
     "flags": ["json", "name"]
   }
 ]

@@ -86,6 +86,9 @@
     "topics": {
       "hello": {
         "description": "Commands to say hello."
+      },
+      "zenquote": {
+        "description": "Commands to retrieve zenquotes."
       }
     }
   },
