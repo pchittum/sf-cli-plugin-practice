@@ -8,24 +8,30 @@
 import { SfCommand, Flags } from '@salesforce/sf-plugins-core';
 import { Messages } from '@salesforce/core';
 
+// supplemental libs
+import fetch from 'node-fetch';
+
+// load up help and error messages from the messages directory of the project
 Messages.importMessagesDirectory(__dirname);
 const messages = Messages.loadMessages('@salesforce/plugin-zen', 'zenquote.fetch');
 
-// the result object/type
+// the result object and needs to be declared in the schemas directory
 export type ZenQuoteFetchResult = {
   name: string;
   time: string;
 };
 
 export default class Fetch extends SfCommand<ZenQuoteFetchResult> {
+  // parse the messages .md file and pull out the stuff you need
   public static readonly summary = messages.getMessage('summary');
   public static readonly description = messages.getMessage('description');
   public static readonly examples = messages.getMessages('examples');
 
-  // what params will there be for this command? 
+  // what params will there be for this command?
+  // the prop name 'fetch' is the parameter name
   public static flags = {
-    name: Flags.string({ // the prop name is the parameter name? 
-      char: 'n', //single char abbreviated flag
+    name: Flags.string({
+      char: 'n',
       description: messages.getMessage('flags.name.description'),
       default: 'World',
     }),
@@ -40,10 +46,14 @@ export default class Fetch extends SfCommand<ZenQuoteFetchResult> {
 
     const time = new Date().toDateString();
 
-    // message appears to be a special thing. Anything you want on stdout goes here? 
-    const message = `Hello ${flags.name} at ${time}\nAnd now this: ${anotherMessage}`;
+    const response = await fetch('https://zenquote.io/api/random');
+
+    // message appears to be a special thing
+    // Anything you want on stdout goes here?
+    const message = `Hello ${flags.name} at ${time}`;
     this.log(message);
     this.log(anotherMessage);
+    this.log(JSON.stringify(response));
     return {
       name: flags.name,
       time,
