@@ -8,5 +8,10 @@
     "command": "zenquote:fetch",
     "plugin": "@pchittum/plugin-zen",
     "flags": ["json", "name"]
+  },
+  {
+    "command": "custom:datagen",
+    "plugin": "@pchittum/plugin-zen",
+    "flags": ["json", "name"]
   }
 ]
