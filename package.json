@@ -89,6 +89,9 @@
       },
       "zenquote": {
         "description": "Commands to retrieve zenquotes."
+      },
+      "custom": {
+        "description": "Custom commands for whatever."
       }
     }
   },
