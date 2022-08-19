@@ -7,6 +7,8 @@
   - You'll need to declare the result object
   - which will need a schema (unless you reuse the hello world schema)
 - Implement your functionality in the `run()` function
+- Imported packages must only be commonjs packages currently
+- CLI team already uses `got` nodejs package
 
 # Notes to self
 
