@@ -22,11 +22,12 @@
 
 # Steps to create a new command and namespace
 
-- If new namespace is being added, create new namespace folder under `commands` folder. For instance `commands/custom`.
-- Copy/rename an existing command's `.ts` file to the appropriate command folder (like `world.ts`). For instance `commands/custom/datagen.ts`.
+- If new namespace is being added, create new namespace folder under `commands` folder. For instance `src/commands/custom`.
+- Copy/rename an existing command's `.ts` file to the appropriate command folder (like `world.ts`). For instance `src/commands/custom/datagen.ts`.
 - Rename the js class declaration for the command: `export default class DataGen extends...`.
-- Stub out the the `...Result` object. For instance for the `DataGen` class you would have a `DataGenResult` object and declare a placeholder property (unless properties are already known).
+- Update the `Flags.parse([object])` call in the `run` function. For `DataGen` like this: `const { flags } = await this.parse(DataGen);`.
+- Stub out the the `...Result` object. For instance for the `DataGen` class you would have a `DataGenResult` object and declare a placeholder property (unless properties are already known). Update the return statement of the `run` function to match the stubbed out props.
 - Update other references to the `...Result` object to reflect new object name such as in the class declaration: `export default class DataGen extends SfCommand<DataGenResult> {...` and the `run` function declaration.
-- Define the schema `.json` file. Easiest again to copy an existing and update details within to reference the Result object.
+- Define the schema `.json` file. Easiest again to copy an existing and update details within to reference the new `...Result` object and its properties .
 - Add a new messages `.md` file named for the folder/file structure as `messages/[folder].[file].md`. For the above example it would be `messages/custom.datagen.md`.
 - Update the `loadMessages` call to use the new messages file, such as: `const messages = Messages.loadMessages('@pchittum/plugin-zen', 'custom.datagen')`.
